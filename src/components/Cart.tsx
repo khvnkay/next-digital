@@ -9,8 +9,9 @@ import Link from "next/link"
 import Image from "next/image"
 
 const Cart = () => {
-    const itemCount = 0
+    const itemCount = 1
     const fee = 1
+    const cartTotal = 1
 
     return <Sheet>
         <SheetTrigger className="group -m-2 flex items-center p-2">
@@ -42,53 +43,40 @@ const Cart = () => {
                         </div>
                         <div className="space-y-4 pr-6">
                             <Separator />
-                            <div className="space-y-1.5 text-sm" >
-                                <div className="flex">
-                                    <div className="flex-1">
-                                        <span>
-                                            Shipping
-                                        </span>
-                                        <span>
-                                            Free
-                                        </span>
-                                    </div>
+                            <div className='space-y-1.5 text-sm'>
+                                <div className='flex'>
+                                    <span className='flex-1'>Shipping</span>
+                                    <span>Free</span>
                                 </div>
-                                <div className="flex">
-                                    <div className="flex-1">
-                                        <span >
-                                            Transaction fee
-                                        </span>
-                                        <span >
-                                            {formatPrice(fee)}
-                                        </span>
-                                    </div>
+                                <div className='flex'>
+                                    <span className='flex-1'>
+                                        Transaction Fee
+                                    </span>
+                                    <span>{formatPrice(fee)}</span>
                                 </div>
-                                <div className="flex">
-                                    <div className="flex-1">
-                                        <span >
-                                            Total
-                                        </span>
-                                        <span >
-                                            {formatPrice(fee)}
-                                        </span>
-                                    </div>
+                                <div className='flex'>
+                                    <span className='flex-1'>Total</span>
+                                    <span>
+                                        {formatPrice(cartTotal + fee)}
+                                    </span>
                                 </div>
-                                <SheetFooter>
-                                    <SheetTrigger
-                                        asChild
-                                    >
-                                        <Link href="/cart" className={buttonVariants({
-                                            className: "w-full",
-                                        })}>
-
-                                            continue checkout
-                                        </Link>
-
-                                    </SheetTrigger>
-                                </SheetFooter>
-
-
                             </div>
+                            <SheetFooter>
+                                <SheetTrigger
+                                    asChild
+                                >
+                                    <Link href="/cart" className={buttonVariants({
+                                        className: "w-full",
+                                    })}>
+
+                                        continue checkout
+                                    </Link>
+
+                                </SheetTrigger>
+                            </SheetFooter>
+
+
+
 
                         </div>
                     </>
@@ -127,7 +115,7 @@ const Cart = () => {
 
         </SheetContent>
 
-    </Sheet>
+    </Sheet >
 
 }
 export default Cart
